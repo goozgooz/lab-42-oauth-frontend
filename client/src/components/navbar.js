@@ -1,4 +1,5 @@
 import React from 'react';
+import {renderIf} from '../lib/__';
 
 class Navbar extends React.Component {
     
