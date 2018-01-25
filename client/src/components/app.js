@@ -30,7 +30,7 @@ class App extends React.Component {
 
                 <Header appTitle="Chat App" />
 
-                <Navbar auth={this.props.auth} switchRoute={this.props.switchRoute} /> 
+                <Navbar auth={this.props.auth} switchRoute={this.props.switchRoute} handleLogout={this.props.logout}/> 
 
                 <main>
                     <Switch location={{pathname:this.props.route}}>

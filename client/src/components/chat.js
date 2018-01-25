@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Chat extends React.component{
+class Chat extends React.Component{
     render(){
         return(
             <React.Fragment>
