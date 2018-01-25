@@ -3,7 +3,13 @@ import {renderIf} from '../lib/__';
 
 class Navbar extends React.Component {
     
+    constructor(props){
+        super(props);
+    }
+    
     render() {
+        
+        console.log(this.props);
         
         return (
 
@@ -13,11 +19,10 @@ class Navbar extends React.Component {
                         renderIf(this.props.auth,
                             <React.Fragment>
                                 <li>
-                                    <button onClick={()=>this.props.switchRoute('/chat')}>Chat
-                                    </button>
+                                    <button onClick={()=>this.props.switchRoute('/chat')}>Chat</button>
                                 </li>
                                 <li>
-                                    <button onClick={()=>this.props.switchRoute('/profile')}>Profile</button>
+                                    <button onClick={ () => this.props.switchRoute('/profile')}>Profile</button>
                                 </li>
                                 <li>
                                     <button onClick={this.props.handleLogout}>Logout</button>

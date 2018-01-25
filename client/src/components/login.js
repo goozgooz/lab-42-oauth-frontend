@@ -1,10 +1,25 @@
-import React from 'react';
+/* global __API_URL__, __GOOGLE_CLIENT_ID__ */
 
-class Login extends React.Component{
+import React from 'react';
+import querystring from 'querystring';
+
+class Login extends React.Component {
+    
     render(){
-        return(
+    	let googleURL = "https://accounts.google.com/o/oauth2/v2/auth";
+		let options = {
+			client_id:__GOOGLE_CLIENT_ID__,
+			redirect_uri: `${__API_URL__}/oauth/google`,
+			scope: 'email openid profile',
+			prompt: 'consent',
+			response_type: 'code'
+		}
+		let QueryString = querystring.stringify(options);
+		let authURL = `${googleURL}?${QueryString}`;
+        
+        return (
             <React.Fragment>
-                Login Page
+               <a href={authURL}>Login With Google</a>
             </React.Fragment>
         )
     }

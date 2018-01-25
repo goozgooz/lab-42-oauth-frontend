@@ -21,7 +21,7 @@ class App extends React.Component {
     }
     
     componentWillMount() {
-        // TODO: this is a good time to validate the user
+        this.props.validate();
     }
 
     render() {
@@ -32,12 +32,12 @@ class App extends React.Component {
 
                 <Navbar auth={this.props.auth} switchRoute={this.props.switchRoute} handleLogout={this.props.logout}/> 
 
-                <main>
+                 <main>
                     <Switch location={{pathname:this.props.route}}>
                         <Route exact path='/chat' component={Chat} />
                         <Route exact path='/profile' component={Profile} />
                         <Route exact path='/login' component={Login} />
-                    </Switch>
+                   </Switch>
                 </main>
 
                 <Footer>
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, getState) => ({
     validate: () => dispatch(authActions.validate()),
     logout: () => dispatch(authActions.logout()),
-    switch: (route) => dispatch(authActions.switchRoute(route)),
+    switchRoute: (route) => dispatch(routeActions.switchRoute(route)),
 })
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
