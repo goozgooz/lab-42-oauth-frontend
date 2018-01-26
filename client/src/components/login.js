@@ -16,7 +16,7 @@ class Login extends React.Component {
 		}
 		let QueryString = querystring.stringify(options);
 		let authURL = `${googleURL}?${QueryString}`;
-        
+        console.log(options);
         return (
             <React.Fragment>
                <a href={authURL}>Login With Google</a>
