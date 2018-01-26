@@ -47,7 +47,7 @@ export default new Router()
             .catch(next);
     })
     
-    .get('/oauth/google/code', (req, res, next) => {
+    .get('/oauth/google', (req, res, next) => {
       
         let code = req.query.code;
       
